@@ -26,15 +26,11 @@ Then you need a set of Reddit API credentials. Go [here](https://old.reddit.com/
 
 Fill in the following fields:
 
-- name: `top-posts`
-- script
-- description: `A script that retrieves the top 10 posts from the last week across a number of sub-reddits`
-- about url: `<link-to-repository>`
-- redirect uri: `http://127.0.0.1`
+![](reddit_app_1.png)
 
 Then click `create app` and you'll see something like the below. 
 
-![](reddit_app.png)
+![](reddit_app_2.png)
 
 I've obfuscated the credentials in the screenshot, but item 1 corresponds to `client_id` and 2 to `client_secret` in the `config.py` file below.
 
