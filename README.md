@@ -56,7 +56,7 @@ subreddits = [
 
 ### Run
 
-You can run the script manually, but I run it once a week using cron and mount the `public/` directory to a Docker container, serving it up on my local network using Caddy. That way I can visit the local URL I use and see the latest list of top posts.
+You can run the script manually, but I run it once a week using cron and mount the repository to a Docker container, serving it up on my local network using Caddy. That way I can visit the local URL I use and see the latest list of top posts.
 
 An example entry for `crontab` can be found below.
 
