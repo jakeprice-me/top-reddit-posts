@@ -31,7 +31,7 @@ def getPosts():
     # Get list of sub-reddits:
     subreddit_list = config.subreddits
 
-    with open("public/index.html", "w") as index:
+    with open("./public/index.html", "w") as index:
 
         html_header = f"""
 <!DOCTYPE html>
