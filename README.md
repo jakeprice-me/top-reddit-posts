@@ -46,8 +46,9 @@ client_secret = "<reddit-app-secret>"
 client_user_agent = (
     "<reddit-app-description>"
 )
+script_directory = "<path to repository folder>"
 period = "week"
-posts = 10
+posts = <number-of-posts>
 subreddits = [
     "subreddit1",
     "subreddit2",
