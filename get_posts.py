@@ -30,8 +30,11 @@ def getPosts():
 
     # Get list of sub-reddits:
     subreddit_list = config.subreddits
+    
+    # Get path to public directory:
+    script_directory = config.script_directory
 
-    with open("./public/index.html", "w") as index:
+    with open(f"{script_directory}/public/index.html", "w") as index:
 
         html_header = f"""
 <!DOCTYPE html>
@@ -41,7 +44,7 @@ def getPosts():
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>The Week's Top Sub-Reddit Posts</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="assets/stylesheet.css">
+    <link rel="stylesheet" href="assets/css/stylesheet.css">
 </head>
 <body>
 <main>
@@ -64,7 +67,7 @@ def getPosts():
                 title = submission.title
 
                 item_output = f"""
-<li><a href="https://old.reddit.com/{permalink}" target="_blank">{title}</a></li>"""
+<li><a href="https://reddit.com{permalink}" target="_blank">{title}</a></li>"""
 
                 index.write(item_output)
 
