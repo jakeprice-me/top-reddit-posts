@@ -67,7 +67,7 @@ def getPosts():
                 title = submission.title
 
                 item_output = f"""
-<li><a href="https://reddit.com{permalink}" target="_blank">{title}</a></li>"""
+<li><a href="https://reddit.com{permalink}" target="_blank">{title}</a> <a href="https://old.reddit.com{permalink}" target="_blank">[o]</a> <a href="https://i.reddit.com{permalink}" target="_blank">[i]</a></li>"""
 
                 index.write(item_output)
 
