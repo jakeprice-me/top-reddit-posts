@@ -46,7 +46,9 @@ client_secret = "<reddit-app-secret>"
 client_user_agent = (
     "<reddit-app-description>"
 )
-script_directory = "<path to repository folder>"
+gotify_app_token = "<app-token>"
+gotify_base_url = "<base-url>"
+script_directory = "<path-to-repository-folder>"
 period = "week"
 posts = <number-of-posts>
 subreddits = [

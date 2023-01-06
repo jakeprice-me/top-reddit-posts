@@ -4,14 +4,16 @@
 
 # ==== Modules ================================================================
 
-import config
-import praw
+import json
 from datetime import datetime
+import praw
+import requests
+import config
 
 # ==== Functions ==============================================================
 
 
-def getPosts():
+def get_posts():
 
     # Set period to retrieve post over:
     period = config.period
@@ -30,11 +32,11 @@ def getPosts():
 
     # Get list of sub-reddits:
     subreddit_list = config.subreddits
-    
+
     # Get path to public directory:
     script_directory = config.script_directory
 
-    with open(f"{script_directory}/public/index.html", "w") as index:
+    with open(f"{script_directory}/public/index.html", "w", encoding="utf-8") as index:
 
         html_header = f"""
 <!DOCTYPE html>
@@ -54,13 +56,14 @@ def getPosts():
         index.write(html_header)
 
         for subreddit in subreddit_list:
+            print(subreddit)
             output = f"""
 <h2>r/{subreddit}</h2>
 <ul>"""
             index.write(output)
 
             for submission in reddit.subreddit(subreddit).top(
-                time_filter=config.period, limit=config.posts
+                time_filter=period, limit=posts
             ):
 
                 permalink = submission.permalink
@@ -79,5 +82,26 @@ def getPosts():
 </html>"""
         index.write(footer)
 
+    # Gotify API Configuration:
+    token = config.gotify_app_token
+    base_url = config.gotify_base_url
+    api_url = f"/message?token={token}"
+    api_payload = {
+        "priority": 4,
+        "title": "Top Reddit Posts",
+        "message": "Latest issue available [here](https://trp.int.ppn.sh)...",
+        "extras": {
+            "client::display": {"contentType": "text/markdown"},
+        },
+    }
+    api_endpoint = base_url + api_url
 
-getPosts()
+    # Gotify API call:
+    requests.post(
+        api_endpoint,
+        headers={"Content-Type": "application/json"},
+        data=json.dumps(api_payload),
+    )
+
+
+get_posts()
