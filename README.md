@@ -26,11 +26,11 @@ Then you need a set of Reddit API credentials. Go [here](https://old.reddit.com/
 
 Fill in the following fields:
 
-![](.images/reddit_app_1.png)
+![](.README/reddit_app_1.png)
 
 Then click `create app` and you'll see something like the below. 
 
-![](.images/reddit_app_2.png)
+![](.README/reddit_app_2.png)
 
 I've obfuscated the credentials in the screenshot, but item 1 corresponds to `client_id` and 2 to `client_secret` in the `config.py` file below.
 
