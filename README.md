@@ -46,8 +46,9 @@ client_secret = "<reddit-app-secret>"
 client_user_agent = (
     "<reddit-app-description>"
 )
-gotify_app_token = "<app-token>"
-gotify_base_url = "<base-url>"
+telegram_base_url = "https://api.telegram.org"
+telegram_bot_chat_id = "<value>"
+telegram_bot_token = "<value>"
 script_directory = "<path-to-repository-folder>"
 period = "week"
 posts = <number-of-posts>
