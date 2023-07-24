@@ -36,6 +36,7 @@ def get_posts():
     script_directory = config.script_directory
 
     public_url = config.public_url
+    trp_url = config.trp_url
 
     with open(f"{script_directory}/public/index.html", "w", encoding="utf-8") as index:
         html_header = f"""
@@ -78,7 +79,7 @@ def get_posts():
                     title = submission.title
 
                     item_output = f"""
-<li><a href="https://{public_url}/{permalink}" target="_blank">{title}</a> <a href="https://old.reddit.com{permalink}" target="_blank">[o]</a></li>"""
+<li><a href="https://{public_url}{permalink}" target="_blank">{title}</a> <a href="https://old.reddit.com{permalink}" target="_blank">[o]</a></li>"""
 
                     index.write(item_output)
 
@@ -111,7 +112,7 @@ def get_posts():
     api_payload = {
         "chat_id": chat_id,
         "parse_mode": "HTML",
-        "text": f'Latest issue available <a href="{public_url}">here</a>...',
+        "text": f'Latest issue available <a href="{trp_url}">here</a>...',
     }
     api_endpoint = base_url + api_url
 
